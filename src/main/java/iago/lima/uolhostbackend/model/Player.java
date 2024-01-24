@@ -1,5 +1,6 @@
 package iago.lima.uolhostbackend.model;
 
+import iago.lima.uolhostbackend.model.dtos.PlayerDto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.EqualsAndHashCode;
@@ -24,4 +25,10 @@ public class Player {
     private String codiname;
     private GroupType groupType;
 
+    public Player(PlayerDto dto) {
+        this.name = dto.name();
+        this.email = dto.email();
+        this.phoneNumber = dto.phoneNumber();
+        this.groupType = dto.groupType();
+    }
 }
